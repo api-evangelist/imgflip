@@ -1,0 +1,65 @@
+finops:
+  summary: >-
+    Imgflip uses a freemium model. Core meme captioning and template retrieval
+    are free with no hard limit. A premium subscription at $9.99/month unlocks
+    advanced endpoints; each endpoint type includes a monthly free allocation and
+    charges a small per-request fee beyond that allocation.
+
+  costs:
+    - name: Free Tier
+      amount: 0
+      currency: USD
+      period: monthly
+      description: No cost for /get_memes and /caption_image (standard image watermarked output).
+
+    - name: Premium Base Fee
+      amount: 9.99
+      currency: USD
+      period: monthly
+      description: Base subscription fee required to access any Premium endpoint.
+
+    - name: GIF Captioning Overage
+      endpoint: /caption_gif
+      freeAllocation: 50
+      freeAllocationPeriod: monthly
+      overageRate: 0.02
+      overageCurrency: USD
+      overageUnit: per request
+
+    - name: Meme Search Overage
+      endpoint: /search_memes
+      freeAllocation: 200
+      freeAllocationPeriod: monthly
+      overageRate: 0.005
+      overageCurrency: USD
+      overageUnit: per request
+
+    - name: Automeme Overage
+      endpoint: /automeme
+      freeAllocation: 50
+      freeAllocationPeriod: monthly
+      overageRate: 0.02
+      overageCurrency: USD
+      overageUnit: per request
+
+    - name: AI Meme Overage
+      endpoint: /ai_meme
+      freeAllocation: 50
+      freeAllocationPeriod: monthly
+      overageRate: 0.02
+      overageCurrency: USD
+      overageUnit: per request
+
+    - name: Watermark Removal Overage
+      feature: no_watermark
+      freeAllocation: 100
+      freeAllocationPeriod: monthly
+      overageRate: 0.01
+      overageCurrency: USD
+      overageUnit: per request
+
+  notes: >-
+    All generated meme images are publicly accessible via their URL regardless
+    of plan. There is no private image generation option. AI meme generation
+    supports two models: OpenAI GPT (openai) and Imgflip's own neural network
+    (classic), both billed at the same rate.

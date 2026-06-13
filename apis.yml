@@ -1,32 +1,62 @@
 aid: imgflip
 name: Imgflip
-description: "Gets an array of popular memes"
-url: https://imgflip.com/api
-specificationVersion: '0.20'
-created: '2026-05-28'
-modified: '2026-05-28'
-x-source: public-apis/public-apis
-x-category: "Entertainment"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+description: Imgflip is a meme generator platform providing a REST API for captioning
+  popular meme templates, searching over one million meme formats, auto-generating
+  memes from text input, and creating original AI-powered meme images. Free endpoints
+  cover getting popular templates and captioning images; premium endpoints unlock GIF
+  captioning, meme search, automeme, and AI meme generation.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+type: Index
 tags:
+  - Memes
+  - Images
+  - GIFs
   - Entertainment
-  - Public APIs
+  - AI
+  - Image Generation
 apis:
-  - name: Imgflip
-    description: "Gets an array of popular memes"
+  - name: Imgflip Meme Generator API
+    description: REST API for captioning meme templates, retrieving popular meme formats,
+      searching the meme library, auto-generating memes from text, and creating original
+      AI-generated memes. Responses are JSON with success status and meme data including
+      URL, dimensions, and box count.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://imgflip.com/api
-    baseURL: https://imgflip.com/api
+    baseURL: https://api.imgflip.com
     tags:
+      - Memes
+      - Images
+      - GIFs
       - Entertainment
+      - AI
+      - Image Generation
     properties:
       - type: Documentation
         url: https://imgflip.com/api
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/rate-limits/rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
+    contact:
+      - FN: Imgflip Support
+        email: support@imgflip.com
 common:
-  - type: Website
+  - type: TermsOfService
+    url: https://imgflip.com/terms
+  - type: Contact
+    url: https://imgflip.com/contact
+  - type: Login
+    url: https://imgflip.com/login
+  - type: SignUp
+    url: https://imgflip.com/signup
+  - type: Plans
     url: https://imgflip.com/api
-  - type: PublicAPIsListing
-    url: https://github.com/public-apis/public-apis
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

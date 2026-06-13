@@ -1,0 +1,45 @@
+plans:
+  - name: Free
+    description: Free access to core meme generation endpoints with no hard request
+      limit, though requests may be throttled or blocked for abusive usage patterns.
+      Generated images are publicly accessible and include the Imgflip watermark.
+    url: https://imgflip.com/api
+    endpoints:
+      - GET /get_memes
+      - POST /caption_image
+    features:
+      - Popular meme template retrieval
+      - Image captioning with up to 20 text boxes
+      - Custom font and font size selection
+      - Outline color support
+    limitations:
+      - No watermark removal
+      - No GIF captioning
+      - No meme search
+      - No automeme or AI meme generation
+      - All generated images are publicly accessible
+
+  - name: Premium
+    description: Paid tier unlocking advanced endpoints including GIF captioning, meme
+      search across 1M+ templates, automeme, and AI meme generation. Includes a base
+      monthly fee plus per-request charges after monthly free allocations are exhausted.
+    url: https://imgflip.com/api
+    price: 9.99
+    priceCurrency: USD
+    billingPeriod: monthly
+    endpoints:
+      - GET /get_memes
+      - POST /caption_image
+      - POST /caption_gif
+      - POST /search_memes
+      - POST /get_meme
+      - POST /automeme
+      - POST /ai_meme
+    features:
+      - All Free tier features
+      - GIF template captioning (first 50/month included)
+      - Meme search across 1M+ templates (first 200/month included)
+      - Retrieve specific meme by ID
+      - Auto-generate memes from text input (first 50/month included)
+      - AI-generated original memes via OpenAI GPT or Imgflip neural network (first 50/month included)
+      - Watermark removal option (first 100/month included)

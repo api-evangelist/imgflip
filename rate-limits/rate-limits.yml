@@ -1,0 +1,37 @@
+rateLimits:
+  - plan: Free
+    description: No hard rate limit is enforced on the free tier, but Imgflip reserves
+      the right to throttle or block requests that exhibit abusive or unusual usage
+      patterns.
+    limit: null
+    period: null
+    notes: >-
+      Imgflip states "no hard limit, but may be throttled or blocked" for abusive
+      usage on the free tier. Best practice is to avoid high-frequency automated
+      bursts.
+
+  - plan: Premium
+    description: Premium subscribers have higher throughput allowances. Monthly free
+      allocations are provided per endpoint type; per-request charges apply after
+      allocations are consumed.
+    allocations:
+      - endpoint: /caption_gif
+        freeMonthly: 50
+        overagePerRequest: 0.02
+        overageCurrency: USD
+      - endpoint: /search_memes
+        freeMonthly: 200
+        overagePerRequest: 0.005
+        overageCurrency: USD
+      - endpoint: /automeme
+        freeMonthly: 50
+        overagePerRequest: 0.02
+        overageCurrency: USD
+      - endpoint: /ai_meme
+        freeMonthly: 50
+        overagePerRequest: 0.02
+        overageCurrency: USD
+      - endpoint: no_watermark (parameter on caption endpoints)
+        freeMonthly: 100
+        overagePerRequest: 0.01
+        overageCurrency: USD
