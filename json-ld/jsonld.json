@@ -1,0 +1,110 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "imgflip": "https://imgflip.com/api#",
+    "template_id": "imgflip:templateId",
+    "box_count": "imgflip:boxCount",
+    "page_url": "imgflip:pageUrl",
+    "no_watermark": "imgflip:noWatermark",
+    "prefix_text": "imgflip:prefixText",
+    "include_nsfw": "imgflip:includeNsfw",
+    "captions": "imgflip:captionCount",
+    "texts": "imgflip:generatedTexts"
+  },
+  "@graph": [
+    {
+      "@type": "WebAPI",
+      "@id": "https://api.imgflip.com",
+      "name": "Imgflip Meme Generator API",
+      "description": "REST API for captioning meme templates, retrieving popular meme formats, searching the meme library, auto-generating memes from text, and creating original AI-generated memes.",
+      "url": "https://imgflip.com/api",
+      "documentation": "https://imgflip.com/api",
+      "termsOfService": "https://imgflip.com/terms",
+      "provider": {
+        "@type": "Organization",
+        "name": "Imgflip",
+        "url": "https://imgflip.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@imgflip.com",
+          "contactType": "customer support",
+          "url": "https://imgflip.com/contact"
+        }
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free Tier",
+          "description": "Access to get_memes and caption_image endpoints at no cost"
+        },
+        {
+          "@type": "Offer",
+          "name": "Premium Tier",
+          "description": "Unlocks caption_gif, search_memes, automeme, and ai_meme endpoints",
+          "url": "https://imgflip.com/api"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Imgflip API Endpoints",
+        "itemListElement": [
+          {
+            "@type": "EntryPoint",
+            "name": "Get Popular Meme Templates",
+            "urlTemplate": "https://api.imgflip.com/get_memes",
+            "httpMethod": "GET",
+            "description": "Returns an array of popular meme templates with metadata"
+          },
+          {
+            "@type": "EntryPoint",
+            "name": "Caption Image",
+            "urlTemplate": "https://api.imgflip.com/caption_image",
+            "httpMethod": "POST",
+            "description": "Adds captions to a meme template and returns the generated meme URL"
+          },
+          {
+            "@type": "EntryPoint",
+            "name": "Caption GIF",
+            "urlTemplate": "https://api.imgflip.com/caption_gif",
+            "httpMethod": "POST",
+            "description": "Adds captions to an animated GIF meme template (premium)"
+          },
+          {
+            "@type": "EntryPoint",
+            "name": "Search Memes",
+            "urlTemplate": "https://api.imgflip.com/search_memes",
+            "httpMethod": "POST",
+            "description": "Searches over one million meme templates by keyword (premium)"
+          },
+          {
+            "@type": "EntryPoint",
+            "name": "Get Meme",
+            "urlTemplate": "https://api.imgflip.com/get_meme",
+            "httpMethod": "POST",
+            "description": "Retrieves details for a specific meme template by ID (premium)"
+          },
+          {
+            "@type": "EntryPoint",
+            "name": "Automeme",
+            "urlTemplate": "https://api.imgflip.com/automeme",
+            "httpMethod": "POST",
+            "description": "Auto-generates a meme from a text phrase (premium)"
+          },
+          {
+            "@type": "EntryPoint",
+            "name": "AI Meme",
+            "urlTemplate": "https://api.imgflip.com/ai_meme",
+            "httpMethod": "POST",
+            "description": "Generates an original AI-powered meme with optional topic seed (premium)"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "imgflip:MemeTemplate",
+      "name": "Meme Template",
+      "description": "A popular base image or GIF used as the foundation for creating captioned memes on Imgflip"
+    }
+  ]
+}

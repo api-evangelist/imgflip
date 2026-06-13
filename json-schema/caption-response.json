@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/imgflip/main/json-schema/caption-response.json",
+  "title": "CaptionResponse",
+  "description": "Response returned after successfully captioning a meme image or GIF.",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "Whether the request was successful"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the generated meme image or animated GIF"
+        },
+        "page_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the meme's page on imgflip.com"
+        }
+      },
+      "required": ["url", "page_url"]
+    }
+  },
+  "required": ["success", "data"]
+}

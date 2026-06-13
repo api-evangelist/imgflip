@@ -37,6 +37,8 @@ apis:
     properties:
       - type: Documentation
         url: https://imgflip.com/api
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/openapi/openapi.yml
       - type: Plans
         url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/plans/plans.yml
       - type: RateLimits

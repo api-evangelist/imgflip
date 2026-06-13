@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/imgflip/main/json-schema/ai-meme-response.json",
+  "title": "AiMemeResponse",
+  "description": "Response returned after AI meme generation, including URL, template used, and generated caption texts.",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "Whether the request was successful"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the AI-generated meme"
+        },
+        "page_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the meme's page on imgflip.com"
+        },
+        "template_id": {
+          "type": "string",
+          "description": "ID of the meme template selected for generation"
+        },
+        "texts": {
+          "type": "array",
+          "description": "Array of AI-generated caption texts applied to the meme",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["url", "page_url", "template_id", "texts"]
+    }
+  },
+  "required": ["success", "data"]
+}

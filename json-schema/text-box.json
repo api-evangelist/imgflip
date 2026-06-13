@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/imgflip/main/json-schema/text-box.json",
+  "title": "TextBox",
+  "description": "Advanced text box definition for precise placement of caption text on a meme template.",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "Caption text content for this box"
+    },
+    "x": {
+      "type": "integer",
+      "description": "X coordinate position of the text box in pixels"
+    },
+    "y": {
+      "type": "integer",
+      "description": "Y coordinate position of the text box in pixels"
+    },
+    "width": {
+      "type": "integer",
+      "description": "Width of the text box in pixels"
+    },
+    "height": {
+      "type": "integer",
+      "description": "Height of the text box in pixels"
+    },
+    "color": {
+      "type": "string",
+      "description": "Text color as a hex color code (e.g. #ffffff)",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "outline_color": {
+      "type": "string",
+      "description": "Text outline color as a hex color code (e.g. #000000)",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    }
+  },
+  "required": ["text"]
+}

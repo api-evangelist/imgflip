@@ -1,0 +1,67 @@
+vocabulary:
+  - term: meme
+    definition: >
+      A humorous image, video, or text that is captioned with witty or relatable
+      text and spread rapidly online. On Imgflip, memes are created by adding
+      captions to pre-existing image or GIF templates.
+  - term: meme template
+    definition: >
+      A popular base image or GIF used as the foundation for creating memes.
+      Templates have predefined text box positions (box_count) and are identified
+      by a unique template_id.
+  - term: template_id
+    definition: >
+      A unique numeric string identifier for a meme template on Imgflip. Used
+      to select a specific template when calling caption_image, caption_gif,
+      get_meme, or ai_meme endpoints.
+  - term: box_count
+    definition: >
+      The number of text caption boxes defined on a meme template, indicating
+      how many independent text regions can be captioned.
+  - term: caption
+    definition: >
+      Text overlaid on a meme template image or GIF. Simple captions use text0
+      (top) and text1 (bottom). Advanced captions use the boxes array for
+      precise positioning, color, and sizing.
+  - term: boxes
+    definition: >
+      An array of TextBox objects used for advanced meme captioning with precise
+      control over position (x, y), dimensions (width, height), text color, and
+      outline color for each caption region.
+  - term: no_watermark
+    definition: >
+      A premium parameter (set to 1) that removes the Imgflip watermark from
+      generated memes. Costs $0.01 per creation after the first 100 per month.
+  - term: automeme
+    definition: >
+      A premium feature that automatically selects a meme template and generates
+      appropriate captions based on a text phrase input, without requiring manual
+      template selection.
+  - term: ai_meme
+    definition: >
+      A premium feature that uses AI (OpenAI or classic model) to generate an
+      entirely original meme, optionally guided by a topic prefix_text seed.
+  - term: prefix_text
+    definition: >
+      An optional topic seed string (max 64 characters) provided to the ai_meme
+      endpoint to guide the AI in generating a meme on a specific subject.
+  - term: caption_gif
+    definition: >
+      A premium endpoint for adding text captions to animated GIF meme templates.
+      Requires the boxes array format; text0/text1 simple mode is not supported.
+  - term: search_memes
+    definition: >
+      A premium endpoint for searching the Imgflip database of over one million
+      meme templates by keyword query, with optional type and NSFW filters.
+  - term: include_nsfw
+    definition: >
+      An optional parameter for search_memes (set to 1) that includes adult or
+      NSFW content in search results. Omitting or setting to 0 excludes such content.
+  - term: impact
+    definition: >
+      The default font used for meme captions on Imgflip, widely recognized as
+      the classic meme font. Specified via the font parameter.
+  - term: page_url
+    definition: >
+      The URL of a generated meme's dedicated page on imgflip.com, returned
+      alongside the direct image URL in caption and generation responses.

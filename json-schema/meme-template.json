@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/imgflip/main/json-schema/meme-template.json",
+  "title": "MemeTemplate",
+  "description": "An Imgflip meme template with metadata including dimensions and caption count.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the meme template"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the meme template"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the meme template image"
+    },
+    "width": {
+      "type": "integer",
+      "description": "Width of the template image in pixels"
+    },
+    "height": {
+      "type": "integer",
+      "description": "Height of the template image in pixels"
+    },
+    "box_count": {
+      "type": "integer",
+      "description": "Number of text boxes on the template"
+    },
+    "captions": {
+      "type": "integer",
+      "description": "Number of times this template has been captioned on Imgflip"
+    }
+  },
+  "required": ["id", "name", "url", "width", "height", "box_count"]
+}
