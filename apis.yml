@@ -55,7 +55,7 @@ common:
     url: https://imgflip.com/contact
   - type: Login
     url: https://imgflip.com/login
-  - type: SignUp
+  - type: Signup
     url: https://imgflip.com/signup
   - type: Plans
     url: https://imgflip.com/api
