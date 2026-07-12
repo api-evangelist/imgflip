@@ -49,6 +49,8 @@ apis:
       - FN: Imgflip Support
         email: support@imgflip.com
 common:
+  - type: DomainSecurity
+    url: security/imgflip-domain-security.yml
   - type: TermsOfService
     url: https://imgflip.com/terms
   - type: Contact
