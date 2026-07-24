@@ -1,0 +1,157 @@
+openapi: 3.0.3
+info:
+  title: Imgflip Meme Generator AI API
+  description: 'REST API for captioning meme templates, retrieving popular meme formats, searching the meme library, auto-generating memes from text, and creating original AI-generated memes. Free endpoints cover getting popular templates and captioning images; premium endpoints unlock GIF captioning, meme search, automeme, and AI meme generation.
+
+    '
+  version: 1.0.0
+  contact:
+    email: support@imgflip.com
+  termsOfService: https://imgflip.com/terms
+servers:
+- url: https://api.imgflip.com
+  description: Imgflip API
+tags:
+- name: AI
+  description: AI-powered meme generation endpoints
+paths:
+  /automeme:
+    post:
+      operationId: automeme
+      summary: Auto-generate a meme from text (Premium)
+      description: 'Converts a text phrase into a meme automatically by selecting the best matching template and captions. Premium: 50 free/month, then $0.02 each.
+
+        '
+      tags:
+      - AI
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AutomemeRequest'
+      responses:
+        '200':
+          description: Generated meme URL and page URL
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaptionResponse'
+  /ai_meme:
+    post:
+      operationId: aiMeme
+      summary: Generate an AI-powered original meme (Premium)
+      description: 'Uses AI (OpenAI or classic model) to generate an original meme, optionally seeded with a topic prefix. Returns URL, page_url, template_id, and generated texts. Premium: 50 free/month, then $0.02 each.
+
+        '
+      tags:
+      - AI
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AiMemeRequest'
+      responses:
+        '200':
+          description: AI-generated meme with URL, template ID, and texts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AiMemeResponse'
+components:
+  schemas:
+    AutomemeRequest:
+      type: object
+      required:
+      - username
+      - password
+      - text
+      properties:
+        username:
+          type: string
+          description: Premium Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        text:
+          type: string
+          description: Phrase or sentence to convert into a meme
+        no_watermark:
+          type: integer
+          description: Remove watermark (premium). Set to 1.
+          enum:
+          - 0
+          - 1
+    AiMemeRequest:
+      type: object
+      required:
+      - username
+      - password
+      properties:
+        username:
+          type: string
+          description: Premium Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        model:
+          type: string
+          description: AI model to use for generation. Defaults to openai.
+          enum:
+          - openai
+          - classic
+          default: openai
+        template_id:
+          type: string
+          description: Optional specific meme template ID for AI generation
+        prefix_text:
+          type: string
+          description: Topic seed text for AI generation (max 64 characters)
+          maxLength: 64
+        no_watermark:
+          type: integer
+          description: Remove watermark (premium). Set to 1.
+          enum:
+          - 0
+          - 1
+    AiMemeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+              description: URL of the AI-generated meme
+            page_url:
+              type: string
+              format: uri
+              description: URL of the meme page on Imgflip
+            template_id:
+              type: string
+              description: Template ID used for the generated meme
+            texts:
+              type: array
+              description: Array of AI-generated caption texts
+              items:
+                type: string
+    CaptionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+              description: URL of the generated meme image or GIF
+            page_url:
+              type: string
+              format: uri
+              description: URL of the meme page on Imgflip

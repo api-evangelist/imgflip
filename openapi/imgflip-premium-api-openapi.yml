@@ -1,0 +1,375 @@
+openapi: 3.0.3
+info:
+  title: Imgflip Meme Generator AI Premium API
+  description: 'REST API for captioning meme templates, retrieving popular meme formats, searching the meme library, auto-generating memes from text, and creating original AI-generated memes. Free endpoints cover getting popular templates and captioning images; premium endpoints unlock GIF captioning, meme search, automeme, and AI meme generation.
+
+    '
+  version: 1.0.0
+  contact:
+    email: support@imgflip.com
+  termsOfService: https://imgflip.com/terms
+servers:
+- url: https://api.imgflip.com
+  description: Imgflip API
+tags:
+- name: Premium
+  description: Endpoints requiring a premium Imgflip account
+paths:
+  /caption_gif:
+    post:
+      operationId: captionGif
+      summary: Caption a GIF meme template (Premium)
+      description: 'Adds captions to an animated GIF meme template. Requires boxes format (text0/text1 not supported). Premium: 50 free/month, then $0.02 each.
+
+        '
+      tags:
+      - Premium
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CaptionGifRequest'
+      responses:
+        '200':
+          description: Generated GIF meme URL and page URL
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaptionResponse'
+  /search_memes:
+    post:
+      operationId: searchMemes
+      summary: Search meme templates (Premium)
+      description: 'Search over one million meme formats by keyword. Returns matching meme templates including caption count. Premium: 200 free/month, then $0.005 each.
+
+        '
+      tags:
+      - Premium
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SearchMemesRequest'
+      responses:
+        '200':
+          description: Matching meme templates
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchMemesResponse'
+  /get_meme:
+    post:
+      operationId: getMeme
+      summary: Get a specific meme template (Premium)
+      description: 'Retrieves details for a single meme template by ID including name, URL, dimensions, and caption count.
+
+        '
+      tags:
+      - Premium
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GetMemeRequest'
+      responses:
+        '200':
+          description: Single meme template details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMemeResponse'
+  /automeme:
+    post:
+      operationId: automeme
+      summary: Auto-generate a meme from text (Premium)
+      description: 'Converts a text phrase into a meme automatically by selecting the best matching template and captions. Premium: 50 free/month, then $0.02 each.
+
+        '
+      tags:
+      - Premium
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AutomemeRequest'
+      responses:
+        '200':
+          description: Generated meme URL and page URL
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaptionResponse'
+  /ai_meme:
+    post:
+      operationId: aiMeme
+      summary: Generate an AI-powered original meme (Premium)
+      description: 'Uses AI (OpenAI or classic model) to generate an original meme, optionally seeded with a topic prefix. Returns URL, page_url, template_id, and generated texts. Premium: 50 free/month, then $0.02 each.
+
+        '
+      tags:
+      - Premium
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AiMemeRequest'
+      responses:
+        '200':
+          description: AI-generated meme with URL, template ID, and texts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AiMemeResponse'
+components:
+  schemas:
+    CaptionGifRequest:
+      type: object
+      required:
+      - template_id
+      - username
+      - password
+      - boxes
+      properties:
+        template_id:
+          type: string
+          description: GIF template ID from get_memes endpoint (type=gif)
+        username:
+          type: string
+          description: Valid Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        font:
+          type: string
+          description: Font family for captions. Defaults to impact.
+          default: impact
+        max_font_size:
+          type: integer
+          description: Maximum font size in pixels. Defaults to 50.
+          default: 50
+        no_watermark:
+          type: integer
+          description: Remove watermark (premium). Set to 1.
+          enum:
+          - 0
+          - 1
+        boxes:
+          type: array
+          description: Text box array (required for GIF captioning; text0/text1 not supported)
+          items:
+            $ref: '#/components/schemas/TextBox'
+    AiMemeRequest:
+      type: object
+      required:
+      - username
+      - password
+      properties:
+        username:
+          type: string
+          description: Premium Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        model:
+          type: string
+          description: AI model to use for generation. Defaults to openai.
+          enum:
+          - openai
+          - classic
+          default: openai
+        template_id:
+          type: string
+          description: Optional specific meme template ID for AI generation
+        prefix_text:
+          type: string
+          description: Topic seed text for AI generation (max 64 characters)
+          maxLength: 64
+        no_watermark:
+          type: integer
+          description: Remove watermark (premium). Set to 1.
+          enum:
+          - 0
+          - 1
+    GetMemeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            meme:
+              $ref: '#/components/schemas/MemeTemplate'
+    SearchMemesResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            memes:
+              type: array
+              items:
+                $ref: '#/components/schemas/MemeTemplate'
+    MemeTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the meme template
+        name:
+          type: string
+          description: Display name of the meme template
+        url:
+          type: string
+          format: uri
+          description: URL of the meme template image
+        width:
+          type: integer
+          description: Width of the template image in pixels
+        height:
+          type: integer
+          description: Height of the template image in pixels
+        box_count:
+          type: integer
+          description: Number of text boxes on the template
+        captions:
+          type: integer
+          description: Number of times this template has been captioned
+    SearchMemesRequest:
+      type: object
+      required:
+      - username
+      - password
+      - query
+      properties:
+        username:
+          type: string
+          description: Premium Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        query:
+          type: string
+          description: Search text to find matching meme templates
+        type:
+          type: string
+          description: Filter results by type
+          enum:
+          - image
+          - gif
+        include_nsfw:
+          type: integer
+          description: Set to 1 to include adult/NSFW content in results
+          enum:
+          - 0
+          - 1
+    GetMemeRequest:
+      type: object
+      required:
+      - username
+      - password
+      - template_id
+      properties:
+        username:
+          type: string
+          description: Valid Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        template_id:
+          type: string
+          description: ID of the meme template to retrieve
+    AiMemeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+              description: URL of the AI-generated meme
+            page_url:
+              type: string
+              format: uri
+              description: URL of the meme page on Imgflip
+            template_id:
+              type: string
+              description: Template ID used for the generated meme
+            texts:
+              type: array
+              description: Array of AI-generated caption texts
+              items:
+                type: string
+    AutomemeRequest:
+      type: object
+      required:
+      - username
+      - password
+      - text
+      properties:
+        username:
+          type: string
+          description: Premium Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        text:
+          type: string
+          description: Phrase or sentence to convert into a meme
+        no_watermark:
+          type: integer
+          description: Remove watermark (premium). Set to 1.
+          enum:
+          - 0
+          - 1
+    TextBox:
+      type: object
+      description: Advanced text box definition for precise placement
+      properties:
+        text:
+          type: string
+          description: Caption text for this box
+        x:
+          type: integer
+          description: X position of the text box in pixels
+        y:
+          type: integer
+          description: Y position of the text box in pixels
+        width:
+          type: integer
+          description: Width of the text box in pixels
+        height:
+          type: integer
+          description: Height of the text box in pixels
+        color:
+          type: string
+          description: Text color (hex code, e.g.
+        outline_color:
+          type: string
+          description: Outline color (hex code, e.g.
+    CaptionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+              description: URL of the generated meme image or GIF
+            page_url:
+              type: string
+              format: uri
+              description: URL of the meme page on Imgflip
