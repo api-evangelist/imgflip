@@ -5,7 +5,19 @@ description: Imgflip is a meme generator platform providing a REST API for capti
   memes from text input, and creating original AI-powered meme images. Free endpoints
   cover getting popular templates and captioning images; premium endpoints unlock GIF
   captioning, meme search, automeme, and AI meme generation.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/imgflip.png
 url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -19,35 +31,66 @@ tags:
   - AI
   - Image Generation
 apis:
-  - name: Imgflip Meme Generator API
-    description: REST API for captioning meme templates, retrieving popular meme formats,
-      searching the meme library, auto-generating memes from text, and creating original
-      AI-generated memes. Responses are JSON with success status and meme data including
-      URL, dimensions, and box count.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://imgflip.com/api
-    baseURL: https://api.imgflip.com
-    tags:
-      - Memes
-      - Images
-      - GIFs
-      - Entertainment
-      - AI
-      - Image Generation
-    properties:
-      - type: Documentation
-        url: https://imgflip.com/api
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/openapi/openapi.yml
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/plans/plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/rate-limits/rate-limits.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
-    contact:
-      - FN: Imgflip Support
-        email: support@imgflip.com
+- aid: imgflip:imgflip-ai-api
+  name: Imgflip AI API
+  description: AI-powered meme generation endpoints
+  humanURL: https://imgflip.com/api
+  baseURL: https://api.imgflip.com
+  tags:
+  - AI
+  properties:
+  - type: OpenAPI
+    url: openapi/imgflip-ai-api-openapi.yml
+  - type: Documentation
+    url: https://imgflip.com/api
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
+- aid: imgflip:imgflip-memes-api
+  name: Imgflip Memes API
+  description: Meme template retrieval and captioning operations
+  humanURL: https://imgflip.com/api
+  baseURL: https://api.imgflip.com
+  tags:
+  - Memes
+  properties:
+  - type: OpenAPI
+    url: openapi/imgflip-memes-api-openapi.yml
+  - type: Documentation
+    url: https://imgflip.com/api
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
+- aid: imgflip:imgflip-premium-api
+  name: Imgflip Premium API
+  description: Endpoints requiring a premium Imgflip account
+  humanURL: https://imgflip.com/api
+  baseURL: https://api.imgflip.com
+  tags:
+  - Premium
+  properties:
+  - type: OpenAPI
+    url: openapi/imgflip-premium-api-openapi.yml
+  - type: Documentation
+    url: https://imgflip.com/api
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
 common:
   - type: AgenticAccess
     url: agentic-access/imgflip-agentic-access.yml
