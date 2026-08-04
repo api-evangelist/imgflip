@@ -1,0 +1,18 @@
+{
+  "provider": "imgflip",
+  "sources": [
+    "imgflip-ai-api-openapi.yml",
+    "imgflip-memes-api-openapi.yml",
+    "imgflip-premium-api-openapi.yml"
+  ],
+  "outputs": [
+    "imgflip-ai-api-openapi.yml",
+    "imgflip-memes-api-openapi.yml",
+    "imgflip-premium-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
