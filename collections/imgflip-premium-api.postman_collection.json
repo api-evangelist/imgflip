@@ -1,0 +1,837 @@
+{
+  "item": [
+    {
+      "id": "f4f9a3d1-d214-4152-ad62-1d68be7c9896",
+      "name": "Premium",
+      "description": {
+        "content": "Endpoints requiring a premium Imgflip account",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "261a743d-7120-4f7c-9d0a-d9d5739ab8a3",
+          "name": "Caption a GIF meme template (Premium)",
+          "request": {
+            "name": "Caption a GIF meme template (Premium)",
+            "description": {
+              "content": "Adds captions to an animated GIF meme template. Requires boxes format (text0/text1 not supported). Premium: 50 free/month, then $0.02 each.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "caption_gif"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "template_id",
+                  "value": "<string>",
+                  "description": "(Required) GIF template ID from get_memes endpoint (type=gif)"
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) Valid Imgflip account username"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) Imgflip account password"
+                },
+                {
+                  "disabled": false,
+                  "key": "boxes",
+                  "value": "{\"text\":\"<string>\",\"x\":\"<integer>\",\"y\":\"<integer>\",\"width\":\"<integer>\",\"height\":\"<integer>\",\"color\":\"<string>\",\"outline_color\":\"<string>\"}",
+                  "description": "(Required) Text box array (required for GIF captioning; text0/text1 not supported)"
+                },
+                {
+                  "disabled": false,
+                  "key": "boxes",
+                  "value": "{\"text\":\"<string>\",\"x\":\"<integer>\",\"y\":\"<integer>\",\"width\":\"<integer>\",\"height\":\"<integer>\",\"color\":\"<string>\",\"outline_color\":\"<string>\"}",
+                  "description": "(Required) Text box array (required for GIF captioning; text0/text1 not supported)"
+                },
+                {
+                  "disabled": false,
+                  "key": "font",
+                  "value": "impact",
+                  "description": "Font family for captions. Defaults to impact."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_font_size",
+                  "value": "50",
+                  "description": "Maximum font size in pixels. Defaults to 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "no_watermark",
+                  "value": "<integer>",
+                  "description": "Remove watermark (premium). Set to 1."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f36a4584-746f-47df-a7ce-6df798ba3032",
+              "name": "Generated GIF meme URL and page URL",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "caption_gif"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) GIF template ID from get_memes endpoint (type=gif)",
+                        "type": "text/plain"
+                      },
+                      "key": "template_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Valid Imgflip account username",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Imgflip account password",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text box array (required for GIF captioning; text0/text1 not supported)",
+                        "type": "text/plain"
+                      },
+                      "key": "boxes",
+                      "value": "{\"text\":\"<string>\",\"x\":\"<integer>\",\"y\":\"<integer>\",\"width\":\"<integer>\",\"height\":\"<integer>\",\"color\":\"<string>\",\"outline_color\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text box array (required for GIF captioning; text0/text1 not supported)",
+                        "type": "text/plain"
+                      },
+                      "key": "boxes",
+                      "value": "{\"text\":\"<string>\",\"x\":\"<integer>\",\"y\":\"<integer>\",\"width\":\"<integer>\",\"height\":\"<integer>\",\"color\":\"<string>\",\"outline_color\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Font family for captions. Defaults to impact.",
+                        "type": "text/plain"
+                      },
+                      "key": "font",
+                      "value": "impact"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Maximum font size in pixels. Defaults to 50.",
+                        "type": "text/plain"
+                      },
+                      "key": "max_font_size",
+                      "value": "50"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Remove watermark (premium). Set to 1.",
+                        "type": "text/plain"
+                      },
+                      "key": "no_watermark",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"data\": {\n    \"url\": \"http://ZIzVUtQxfbNqHVwzZMpunqjbHfnvw.usgo8rnQbrYhJqKrWkSlfU+cn1497-LZ\",\n    \"page_url\": \"http://JtGBoHiJpqMxSjVDrPHsPc.llwpKl0RG9kqkI,jtfPkjso5+QCbrDyWa-fFm7lG47A0O1Gt85hEXRF1Tpwg2,\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ff362ea-0a8a-4d59-884b-7b56be6093ff",
+          "name": "Search meme templates (Premium)",
+          "request": {
+            "name": "Search meme templates (Premium)",
+            "description": {
+              "content": "Search over one million meme formats by keyword. Returns matching meme templates including caption count. Premium: 200 free/month, then $0.005 each.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search_memes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) Premium Imgflip account username"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) Imgflip account password"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) Search text to find matching meme templates"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter results by type"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_nsfw",
+                  "value": "<integer>",
+                  "description": "Set to 1 to include adult/NSFW content in results"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "58217744-6714-4598-8fbe-594cc846d499",
+              "name": "Matching meme templates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search_memes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Premium Imgflip account username",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Imgflip account password",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Search text to find matching meme templates",
+                        "type": "text/plain"
+                      },
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Filter results by type",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to 1 to include adult/NSFW content in results",
+                        "type": "text/plain"
+                      },
+                      "key": "include_nsfw",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"memes\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"https://hCqCCvcEUSPqaUYttqhBZGX.wmE,1Ps22l+3WnW\",\n        \"width\": 6924,\n        \"height\": 5079,\n        \"box_count\": 2745,\n        \"captions\": 2841\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"https://EXvVJkpKGlmtlv.oulUUY7KI,lHCCz0BLhlon,D+BlBHZg8kw,IPYl6u5A78qTJvoe\",\n        \"width\": 1374,\n        \"height\": 9184,\n        \"box_count\": 4386,\n        \"captions\": 8601\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a2cacc6-f490-4b8e-b461-ec873fdb4b2b",
+          "name": "Get a specific meme template (Premium)",
+          "request": {
+            "name": "Get a specific meme template (Premium)",
+            "description": {
+              "content": "Retrieves details for a single meme template by ID including name, URL, dimensions, and caption count.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "get_meme"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) Valid Imgflip account username"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) Imgflip account password"
+                },
+                {
+                  "disabled": false,
+                  "key": "template_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the meme template to retrieve"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "db695faa-fe91-47a8-b181-1f814f24d692",
+              "name": "Single meme template details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get_meme"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Valid Imgflip account username",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Imgflip account password",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ID of the meme template to retrieve",
+                        "type": "text/plain"
+                      },
+                      "key": "template_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"data\": {\n    \"meme\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"url\": \"http://pYyNSVEJQqGXYcGRdEkU.ehocsM3PNOUkZf4c--fb968brY,4TLYoSRatGl-pAGit7QbhNTWrb8PomIF5RCw9VTvFJ3pu1,s\",\n      \"width\": 881,\n      \"height\": 6460,\n      \"box_count\": 126,\n      \"captions\": 8419\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c659233-c0e1-43fd-87f0-dd09e1c0ee92",
+          "name": "Auto-generate a meme from text (Premium)",
+          "request": {
+            "name": "Auto-generate a meme from text (Premium)",
+            "description": {
+              "content": "Converts a text phrase into a meme automatically by selecting the best matching template and captions. Premium: 50 free/month, then $0.02 each.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "automeme"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) Premium Imgflip account username"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) Imgflip account password"
+                },
+                {
+                  "disabled": false,
+                  "key": "text",
+                  "value": "<string>",
+                  "description": "(Required) Phrase or sentence to convert into a meme"
+                },
+                {
+                  "disabled": false,
+                  "key": "no_watermark",
+                  "value": "<integer>",
+                  "description": "Remove watermark (premium). Set to 1."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "506fd85c-da90-468c-8cf9-0956847b1dc9",
+              "name": "Generated meme URL and page URL",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "automeme"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Premium Imgflip account username",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Imgflip account password",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Phrase or sentence to convert into a meme",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Remove watermark (premium). Set to 1.",
+                        "type": "text/plain"
+                      },
+                      "key": "no_watermark",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"data\": {\n    \"url\": \"http://ZIzVUtQxfbNqHVwzZMpunqjbHfnvw.usgo8rnQbrYhJqKrWkSlfU+cn1497-LZ\",\n    \"page_url\": \"http://JtGBoHiJpqMxSjVDrPHsPc.llwpKl0RG9kqkI,jtfPkjso5+QCbrDyWa-fFm7lG47A0O1Gt85hEXRF1Tpwg2,\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6700bd2-4509-48cd-a92b-7ffe4acee2d3",
+          "name": "Generate an AI-powered original meme (Premium)",
+          "request": {
+            "name": "Generate an AI-powered original meme (Premium)",
+            "description": {
+              "content": "Uses AI (OpenAI or classic model) to generate an original meme, optionally seeded with a topic prefix. Returns URL, page_url, template_id, and generated texts. Premium: 50 free/month, then $0.02 each.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai_meme"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) Premium Imgflip account username"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) Imgflip account password"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "openai",
+                  "description": "AI model to use for generation. Defaults to openai."
+                },
+                {
+                  "disabled": false,
+                  "key": "template_id",
+                  "value": "<string>",
+                  "description": "Optional specific meme template ID for AI generation"
+                },
+                {
+                  "disabled": false,
+                  "key": "prefix_text",
+                  "value": "<string>",
+                  "description": "Topic seed text for AI generation (max 64 characters)"
+                },
+                {
+                  "disabled": false,
+                  "key": "no_watermark",
+                  "value": "<integer>",
+                  "description": "Remove watermark (premium). Set to 1."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "57a61f89-1d09-40cd-ad55-694a7a6c7332",
+              "name": "AI-generated meme with URL, template ID, and texts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai_meme"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Premium Imgflip account username",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Imgflip account password",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "AI model to use for generation. Defaults to openai.",
+                        "type": "text/plain"
+                      },
+                      "key": "model",
+                      "value": "openai"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Optional specific meme template ID for AI generation",
+                        "type": "text/plain"
+                      },
+                      "key": "template_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Topic seed text for AI generation (max 64 characters)",
+                        "type": "text/plain"
+                      },
+                      "key": "prefix_text",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Remove watermark (premium). Set to 1.",
+                        "type": "text/plain"
+                      },
+                      "key": "no_watermark",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"data\": {\n    \"url\": \"http://wneKLj.qpgiuaIDeAee,f6SGec2yOoMp\",\n    \"page_url\": \"https://zbxEpquMWWqNBLkpLVASqqc.ndqiKwjZcF\",\n    \"template_id\": \"string\",\n    \"texts\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.imgflip.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b744fd36-7af0-463f-a20b-d9d133e2afcd",
+    "name": "Imgflip Meme Generator AI Premium API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for captioning meme templates, retrieving popular meme formats, searching the meme library, auto-generating memes from text, and creating original AI-generated memes. Free endpoints cover getting popular templates and captioning images; premium endpoints unlock GIF captioning, meme search, automeme, and AI meme generation.\n\n\nContact Support:\n Email: support@imgflip.com",
+      "type": "text/plain"
+    }
+  }
+}

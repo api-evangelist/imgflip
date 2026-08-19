@@ -1,0 +1,348 @@
+{
+  "item": [
+    {
+      "id": "44525031-f518-41cc-885e-fdec3ef6b5b1",
+      "name": "AI",
+      "description": {
+        "content": "AI-powered meme generation endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41c33649-8824-42d5-9adc-975370e310b3",
+          "name": "Auto-generate a meme from text (Premium)",
+          "request": {
+            "name": "Auto-generate a meme from text (Premium)",
+            "description": {
+              "content": "Converts a text phrase into a meme automatically by selecting the best matching template and captions. Premium: 50 free/month, then $0.02 each.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "automeme"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) Premium Imgflip account username"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) Imgflip account password"
+                },
+                {
+                  "disabled": false,
+                  "key": "text",
+                  "value": "<string>",
+                  "description": "(Required) Phrase or sentence to convert into a meme"
+                },
+                {
+                  "disabled": false,
+                  "key": "no_watermark",
+                  "value": "<integer>",
+                  "description": "Remove watermark (premium). Set to 1."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dc9ca581-9499-4118-9be8-204ad9907199",
+              "name": "Generated meme URL and page URL",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "automeme"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Premium Imgflip account username",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Imgflip account password",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Phrase or sentence to convert into a meme",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Remove watermark (premium). Set to 1.",
+                        "type": "text/plain"
+                      },
+                      "key": "no_watermark",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"url\": \"https://IeaPyrorP.prwvOSVgwFo2Kv6k6govPfWa-,jiRG9s,HfrmpWqI\",\n    \"page_url\": \"https://bnajXi.vrmK0erTuhX+HBgw+LNqDN-YVyrDOEfiKWXY\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae9b26bf-1ecb-4674-bc61-cc979db3ba56",
+          "name": "Generate an AI-powered original meme (Premium)",
+          "request": {
+            "name": "Generate an AI-powered original meme (Premium)",
+            "description": {
+              "content": "Uses AI (OpenAI or classic model) to generate an original meme, optionally seeded with a topic prefix. Returns URL, page_url, template_id, and generated texts. Premium: 50 free/month, then $0.02 each.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai_meme"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) Premium Imgflip account username"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) Imgflip account password"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "openai",
+                  "description": "AI model to use for generation. Defaults to openai."
+                },
+                {
+                  "disabled": false,
+                  "key": "template_id",
+                  "value": "<string>",
+                  "description": "Optional specific meme template ID for AI generation"
+                },
+                {
+                  "disabled": false,
+                  "key": "prefix_text",
+                  "value": "<string>",
+                  "description": "Topic seed text for AI generation (max 64 characters)"
+                },
+                {
+                  "disabled": false,
+                  "key": "no_watermark",
+                  "value": "<integer>",
+                  "description": "Remove watermark (premium). Set to 1."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d681a536-cff3-4dee-8641-4f00a5ea00c3",
+              "name": "AI-generated meme with URL, template ID, and texts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai_meme"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Premium Imgflip account username",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Imgflip account password",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "AI model to use for generation. Defaults to openai.",
+                        "type": "text/plain"
+                      },
+                      "key": "model",
+                      "value": "openai"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Optional specific meme template ID for AI generation",
+                        "type": "text/plain"
+                      },
+                      "key": "template_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Topic seed text for AI generation (max 64 characters)",
+                        "type": "text/plain"
+                      },
+                      "key": "prefix_text",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Remove watermark (premium). Set to 1.",
+                        "type": "text/plain"
+                      },
+                      "key": "no_watermark",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"url\": \"https://RbFrSZuhVqAHPejuXzLjWFyxqloQZMKza.sdF5G.AT9.Je.RGQRv7lIo1YX3\",\n    \"page_url\": \"https://Yz.zlww1yOgC-UeNF4Smrlg3y2V-BfJtM.8Sg9mGA48\",\n    \"template_id\": \"string\",\n    \"texts\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.imgflip.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "833062ef-d08a-4bdb-8e83-5bdfbbc427ab",
+    "name": "Imgflip Meme Generator AI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for captioning meme templates, retrieving popular meme formats, searching the meme library, auto-generating memes from text, and creating original AI-generated memes. Free endpoints cover getting popular templates and captioning images; premium endpoints unlock GIF captioning, meme search, automeme, and AI meme generation.\n\n\nContact Support:\n Email: support@imgflip.com",
+      "type": "text/plain"
+    }
+  }
+}

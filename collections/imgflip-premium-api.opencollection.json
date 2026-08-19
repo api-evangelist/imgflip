@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgflip Meme Generator AI Premium API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Premium",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Caption a GIF meme template (Premium)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgflip.com/caption_gif",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Adds captions to an animated GIF meme template. Requires boxes format (text0/text1 not supported). Premium: 50 free/month, then $0.02 each.\n"
+        },
+        {
+          "info": {
+            "name": "Search meme templates (Premium)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgflip.com/search_memes",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Search over one million meme formats by keyword. Returns matching meme templates including caption count. Premium: 200 free/month, then $0.005 each.\n"
+        },
+        {
+          "info": {
+            "name": "Get a specific meme template (Premium)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgflip.com/get_meme",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Retrieves details for a single meme template by ID including name, URL, dimensions, and caption count.\n"
+        },
+        {
+          "info": {
+            "name": "Auto-generate a meme from text (Premium)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgflip.com/automeme",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Converts a text phrase into a meme automatically by selecting the best matching template and captions. Premium: 50 free/month, then $0.02 each.\n"
+        },
+        {
+          "info": {
+            "name": "Generate an AI-powered original meme (Premium)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgflip.com/ai_meme",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Uses AI (OpenAI or classic model) to generate an original meme, optionally seeded with a topic prefix. Returns URL, page_url, template_id, and generated texts. Premium: 50 free/month, then $0.02 each.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
