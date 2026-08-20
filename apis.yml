@@ -25,6 +25,13 @@ specificationVersion: '0.23'
 type: Index
 tags:
   - Memes
+  - Image
+  - GIFs
+  - Entertainment
+  - Artificial Intelligence
+  - Image-Generation
+tags_raw:
+  - Memes
   - Images
   - GIFs
   - Entertainment
@@ -37,6 +44,8 @@ apis:
   humanURL: https://imgflip.com/api
   baseURL: https://api.imgflip.com
   tags:
+  - Artificial Intelligence
+  tags_raw:
   - AI
   properties:
   - type: OpenAPI
