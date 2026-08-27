@@ -38,28 +38,6 @@ tags_raw:
   - AI
   - Image Generation
 apis:
-- aid: imgflip:imgflip-ai-api
-  name: Imgflip AI API
-  description: AI-powered meme generation endpoints
-  humanURL: https://imgflip.com/api
-  baseURL: https://api.imgflip.com
-  tags:
-  - Artificial Intelligence
-  tags_raw:
-  - AI
-  properties:
-  - type: OpenAPI
-    url: openapi/imgflip-ai-api-openapi.yml
-  - type: Documentation
-    url: https://imgflip.com/api
-  - type: Plans
-    url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/plans/plans.yml
-  - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/rate-limits/rate-limits.yml
-  - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
 - aid: imgflip:imgflip-memes-api
   name: Imgflip Memes API
   description: Meme template retrieval and captioning operations
@@ -70,26 +48,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/imgflip-memes-api-openapi.yml
-  - type: Documentation
-    url: https://imgflip.com/api
-  - type: Plans
-    url: https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/plans/plans.yml
-  - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/rate-limits/rate-limits.yml
-  - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
-- aid: imgflip:imgflip-premium-api
-  name: Imgflip Premium API
-  description: Endpoints requiring a premium Imgflip account
-  humanURL: https://imgflip.com/api
-  baseURL: https://api.imgflip.com
-  tags:
-  - Premium
-  properties:
-  - type: OpenAPI
-    url: openapi/imgflip-premium-api-openapi.yml
   - type: Documentation
     url: https://imgflip.com/api
   - type: Plans
