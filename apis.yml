@@ -5,6 +5,18 @@ description: Imgflip is a meme generator platform providing a REST API for capti
   memes from text input, and creating original AI-powered meme images. Free endpoints
   cover getting popular templates and captioning images; premium endpoints unlock GIF
   captioning, meme search, automeme, and AI meme generation.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
