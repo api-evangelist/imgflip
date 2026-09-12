@@ -71,6 +71,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
 common:
+  - type: Website
+    url: https://www.imgflip.com/
   - type: AgenticAccess
     url: agentic-access/imgflip-agentic-access.yml
   - type: DomainSecurity
