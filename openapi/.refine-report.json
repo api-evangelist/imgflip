@@ -1,18 +1,21 @@
 {
   "provider": "imgflip",
   "sources": [
-    "imgflip-ai-api-openapi.yml",
-    "imgflip-memes-api-openapi.yml",
-    "imgflip-premium-api-openapi.yml"
+    "_original/openapi.yml"
   ],
   "outputs": [
-    "imgflip-ai-api-openapi.yml",
-    "imgflip-memes-api-openapi.yml",
-    "imgflip-premium-api-openapi.yml"
+    "imgflip-memes-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "openapi.yml: multi-axis tagging (3 tags, 1 first tags, 2.00x duplication over 7 operations) \u2014 split on first tag, 5 operations narrowed",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "imgflip-memes-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
