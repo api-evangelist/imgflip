@@ -41,7 +41,7 @@ tags:
   - GIFs
   - Entertainment
   - Artificial Intelligence
-  - Image-Generation
+  - Image Generation
 tags_raw:
   - Memes
   - Images
@@ -49,6 +49,7 @@ tags_raw:
   - Entertainment
   - AI
   - Image Generation
+  - Image-Generation
 apis:
 - aid: imgflip:imgflip-memes-api
   name: Imgflip Memes API
