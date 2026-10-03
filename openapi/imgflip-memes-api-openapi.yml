@@ -181,6 +181,75 @@ components:
           enum:
           - 0
           - 1
+    SearchMemesRequest:
+      type: object
+      required:
+      - username
+      - password
+      - query
+      properties:
+        username:
+          type: string
+          description: Premium Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        query:
+          type: string
+          description: Search text to find matching meme templates
+        type:
+          type: string
+          description: Filter results by type
+          enum:
+          - image
+          - gif
+        include_nsfw:
+          type: integer
+          description: Set to 1 to include adult/NSFW content in results
+          enum:
+          - 0
+          - 1
+    CaptionImageRequest:
+      type: object
+      required:
+      - template_id
+      - username
+      - password
+      properties:
+        template_id:
+          type: string
+          description: Template ID from get_memes endpoint
+        username:
+          type: string
+          description: Valid Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        text0:
+          type: string
+          description: Top text caption (simple mode)
+        text1:
+          type: string
+          description: Bottom text caption (simple mode)
+        font:
+          type: string
+          description: Font family for captions. Defaults to impact.
+          default: impact
+        max_font_size:
+          type: integer
+          description: Maximum font size in pixels. Defaults to 50.
+          default: 50
+        no_watermark:
+          type: integer
+          description: Remove watermark (premium, $0.01 per creation after 100/month). Set to 1.
+          enum:
+          - 0
+          - 1
+        boxes:
+          type: array
+          description: Advanced text box array for multiple captions with positioning
+          items:
+            $ref: '#/components/schemas/TextBox'
     MemeTemplate:
       type: object
       properties:
@@ -206,7 +275,7 @@ components:
         captions:
           type: integer
           description: Number of times this template has been captioned
-    GetMemeResponse:
+    AiMemeResponse:
       type: object
       properties:
         success:
@@ -214,8 +283,38 @@ components:
         data:
           type: object
           properties:
-            meme:
-              $ref: '#/components/schemas/MemeTemplate'
+            url:
+              type: string
+              format: uri
+              description: URL of the AI-generated meme
+            page_url:
+              type: string
+              format: uri
+              description: URL of the meme page on Imgflip
+            template_id:
+              type: string
+              description: Template ID used for the generated meme
+            texts:
+              type: array
+              description: Array of AI-generated caption texts
+              items:
+                type: string
+    CaptionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+              description: URL of the generated meme image or GIF
+            page_url:
+              type: string
+              format: uri
+              description: URL of the meme page on Imgflip
     SearchMemesResponse:
       type: object
       properties:
@@ -264,6 +363,16 @@ components:
           description: Text box array (required for GIF captioning; text0/text1 not supported)
           items:
             $ref: '#/components/schemas/TextBox'
+    GetMemeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            meme:
+              $ref: '#/components/schemas/MemeTemplate'
     GetMemesResponse:
       type: object
       properties:
@@ -276,22 +385,6 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/MemeTemplate'
-    CaptionResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        data:
-          type: object
-          properties:
-            url:
-              type: string
-              format: uri
-              description: URL of the generated meme image or GIF
-            page_url:
-              type: string
-              format: uri
-              description: URL of the meme page on Imgflip
     AiMemeRequest:
       type: object
       required:
@@ -324,22 +417,6 @@ components:
           enum:
           - 0
           - 1
-    GetMemeRequest:
-      type: object
-      required:
-      - username
-      - password
-      - template_id
-      properties:
-        username:
-          type: string
-          description: Valid Imgflip account username
-        password:
-          type: string
-          description: Imgflip account password
-        template_id:
-          type: string
-          description: ID of the meme template to retrieve
     TextBox:
       type: object
       description: Advanced text box definition for precise placement
@@ -365,96 +442,19 @@ components:
         outline_color:
           type: string
           description: Outline color (hex code, e.g.
-    AiMemeResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        data:
-          type: object
-          properties:
-            url:
-              type: string
-              format: uri
-              description: URL of the AI-generated meme
-            page_url:
-              type: string
-              format: uri
-              description: URL of the meme page on Imgflip
-            template_id:
-              type: string
-              description: Template ID used for the generated meme
-            texts:
-              type: array
-              description: Array of AI-generated caption texts
-              items:
-                type: string
-    CaptionImageRequest:
+    GetMemeRequest:
       type: object
       required:
-      - template_id
       - username
       - password
+      - template_id
       properties:
-        template_id:
-          type: string
-          description: Template ID from get_memes endpoint
         username:
           type: string
           description: Valid Imgflip account username
         password:
           type: string
           description: Imgflip account password
-        text0:
+        template_id:
           type: string
-          description: Top text caption (simple mode)
-        text1:
-          type: string
-          description: Bottom text caption (simple mode)
-        font:
-          type: string
-          description: Font family for captions. Defaults to impact.
-          default: impact
-        max_font_size:
-          type: integer
-          description: Maximum font size in pixels. Defaults to 50.
-          default: 50
-        no_watermark:
-          type: integer
-          description: Remove watermark (premium, $0.01 per creation after 100/month). Set to 1.
-          enum:
-          - 0
-          - 1
-        boxes:
-          type: array
-          description: Advanced text box array for multiple captions with positioning
-          items:
-            $ref: '#/components/schemas/TextBox'
-    SearchMemesRequest:
-      type: object
-      required:
-      - username
-      - password
-      - query
-      properties:
-        username:
-          type: string
-          description: Premium Imgflip account username
-        password:
-          type: string
-          description: Imgflip account password
-        query:
-          type: string
-          description: Search text to find matching meme templates
-        type:
-          type: string
-          description: Filter results by type
-          enum:
-          - image
-          - gif
-        include_nsfw:
-          type: integer
-          description: Set to 1 to include adult/NSFW content in results
-          enum:
-          - 0
-          - 1
+          description: ID of the meme template to retrieve
