@@ -159,28 +159,6 @@ paths:
                 $ref: '#/components/schemas/AiMemeResponse'
 components:
   schemas:
-    AutomemeRequest:
-      type: object
-      required:
-      - username
-      - password
-      - text
-      properties:
-        username:
-          type: string
-          description: Premium Imgflip account username
-        password:
-          type: string
-          description: Imgflip account password
-        text:
-          type: string
-          description: Phrase or sentence to convert into a meme
-        no_watermark:
-          type: integer
-          description: Remove watermark (premium). Set to 1.
-          enum:
-          - 0
-          - 1
     SearchMemesRequest:
       type: object
       required:
@@ -209,6 +187,71 @@ components:
           enum:
           - 0
           - 1
+    GetMemeRequest:
+      type: object
+      required:
+      - username
+      - password
+      - template_id
+      properties:
+        username:
+          type: string
+          description: Valid Imgflip account username
+        password:
+          type: string
+          description: Imgflip account password
+        template_id:
+          type: string
+          description: ID of the meme template to retrieve
+    AiMemeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+              description: URL of the AI-generated meme
+            page_url:
+              type: string
+              format: uri
+              description: URL of the meme page on Imgflip
+            template_id:
+              type: string
+              description: Template ID used for the generated meme
+            texts:
+              type: array
+              description: Array of AI-generated caption texts
+              items:
+                type: string
+    MemeTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the meme template
+        name:
+          type: string
+          description: Display name of the meme template
+        url:
+          type: string
+          format: uri
+          description: URL of the meme template image
+        width:
+          type: integer
+          description: Width of the template image in pixels
+        height:
+          type: integer
+          description: Height of the template image in pixels
+        box_count:
+          type: integer
+          description: Number of text boxes on the template
+        captions:
+          type: integer
+          description: Number of times this template has been captioned
     CaptionImageRequest:
       type: object
       required:
@@ -250,72 +293,7 @@ components:
           description: Advanced text box array for multiple captions with positioning
           items:
             $ref: '#/components/schemas/TextBox'
-    MemeTemplate:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the meme template
-        name:
-          type: string
-          description: Display name of the meme template
-        url:
-          type: string
-          format: uri
-          description: URL of the meme template image
-        width:
-          type: integer
-          description: Width of the template image in pixels
-        height:
-          type: integer
-          description: Height of the template image in pixels
-        box_count:
-          type: integer
-          description: Number of text boxes on the template
-        captions:
-          type: integer
-          description: Number of times this template has been captioned
-    AiMemeResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        data:
-          type: object
-          properties:
-            url:
-              type: string
-              format: uri
-              description: URL of the AI-generated meme
-            page_url:
-              type: string
-              format: uri
-              description: URL of the meme page on Imgflip
-            template_id:
-              type: string
-              description: Template ID used for the generated meme
-            texts:
-              type: array
-              description: Array of AI-generated caption texts
-              items:
-                type: string
-    CaptionResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        data:
-          type: object
-          properties:
-            url:
-              type: string
-              format: uri
-              description: URL of the generated meme image or GIF
-            page_url:
-              type: string
-              format: uri
-              description: URL of the meme page on Imgflip
-    SearchMemesResponse:
+    GetMemesResponse:
       type: object
       properties:
         success:
@@ -373,18 +351,6 @@ components:
           properties:
             meme:
               $ref: '#/components/schemas/MemeTemplate'
-    GetMemesResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        data:
-          type: object
-          properties:
-            memes:
-              type: array
-              items:
-                $ref: '#/components/schemas/MemeTemplate'
     AiMemeRequest:
       type: object
       required:
@@ -442,19 +408,53 @@ components:
         outline_color:
           type: string
           description: Outline color (hex code, e.g.
-    GetMemeRequest:
+    CaptionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+              description: URL of the generated meme image or GIF
+            page_url:
+              type: string
+              format: uri
+              description: URL of the meme page on Imgflip
+    SearchMemesResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            memes:
+              type: array
+              items:
+                $ref: '#/components/schemas/MemeTemplate'
+    AutomemeRequest:
       type: object
       required:
       - username
       - password
-      - template_id
+      - text
       properties:
         username:
           type: string
-          description: Valid Imgflip account username
+          description: Premium Imgflip account username
         password:
           type: string
           description: Imgflip account password
-        template_id:
+        text:
           type: string
-          description: ID of the meme template to retrieve
+          description: Phrase or sentence to convert into a meme
+        no_watermark:
+          type: integer
+          description: Remove watermark (premium). Set to 1.
+          enum:
+          - 0
+          - 1
