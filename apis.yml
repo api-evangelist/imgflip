@@ -72,6 +72,10 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/imgflip/refs/heads/main/finops/finops.yml
 common:
+  - type: RateLimits
+    url: rate-limits/rate-limits.yml
+  - type: FinOps
+    url: finops/finops.yml
   - type: Website
     url: https://www.imgflip.com/
   - type: AgenticAccess
